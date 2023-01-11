@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\News;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,11 +16,6 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('news')->insert([
-            'title' => fake()->sentence(),
-            'description' => fake()->paragraph(2, true),
-            'category' => fake()->word(),
-            'author' => fake()->email()
-        ]);
+        News::factory()->count(50)->create();
     }
 }
