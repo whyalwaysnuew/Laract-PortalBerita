@@ -42,7 +42,13 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $news = new News();
+        $news->title = $request->title;
+        $news->description = $request->description;
+        $news->category = $request->category;
+        $news->author = auth()->user()->name;
+        $news->save();
+        return redirect()->back()->with('message', 'Berhasil Membuat Berita!');
     }
 
     /**
