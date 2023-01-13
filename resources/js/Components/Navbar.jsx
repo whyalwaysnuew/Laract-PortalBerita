@@ -5,7 +5,7 @@ const Navbar = ({user}) => {
     return(
         <div className="navbar bg-base-100">
             <div className="flex-1 px-4">
-                <Link className="normal-case text-xl">NUEWS</Link>
+                <Link href={route('home')} className="normal-case text-xl">NUEWS</Link>
             </div>
             <div className="flex-none gap-2">
                 <div className="form-control">
@@ -32,8 +32,8 @@ const Navbar = ({user}) => {
                     </div> 
                     : 
                     <div className="flex flex-end gap-2">
-                        <Link href={route('login')} className="btn">Login</Link>
-                        <Link href={route('register')} className="btn btn-outline btn-warning">Register</Link>
+                        <Link href={route('login')} className="btn btn-primary">Login</Link>
+                        <Link href={route('register')} className="btn btn-outline">Register</Link>
                     </div>
                 }
             </div>

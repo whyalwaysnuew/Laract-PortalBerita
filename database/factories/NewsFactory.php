@@ -20,7 +20,8 @@ class NewsFactory extends Factory
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(2, true),
             'category' => fake()->word(5),
-            'author' => fake()->email()
+            'author' => fake()->email(),
+            'image' => fake()->imageUrl()
         ];
     }
 }
