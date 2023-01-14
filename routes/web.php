@@ -17,8 +17,10 @@ use Inertia\Inertia;
 |
 */
 Route::get('/', [NewsController::class, 'index'])->name('home');
-Route::post('/news', [NewsController::class, 'store']);
-Route::get('/news', [NewsController::class, 'show']);
+// Route::post('/news', [NewsController::class, 'store']);
+Route::get('/MyNews', [NewsController::class, 'show']);
+Route::get('/dashboard/MyNews', [NewsController::class, 'show'])->name('MyNews');
+Route::post('News', [NewsController::class, 'store']);
 
 // Route::get('/welcome', function () {
 //     return Inertia::render('Welcome', [
@@ -28,6 +30,10 @@ Route::get('/news', [NewsController::class, 'show']);
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
+Route::get('/dashboard/MyNews/create', function () {
+    return Inertia::render('CreateNews');
+})->middleware(['auth', 'verified'])->name('Create-News');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

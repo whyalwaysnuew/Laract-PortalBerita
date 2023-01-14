@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = new NewsCollection(News::paginate(6));
+        $news = new NewsCollection(News::OrderByDesc('id')->paginate(6));
         return Inertia::render('Home',[
             'title' => "Daily Nuews",
             'description' => "Selamat Datang di Portal Berita Nomor 1",
@@ -48,7 +48,7 @@ class NewsController extends Controller
         $news->category = $request->category;
         $news->author = auth()->user()->name;
         $news->save();
-        return redirect()->back()->with('message', 'Berhasil Membuat Berita!');
+        return redirect('/')->with('message', 'Berhasil Membuat Berita!');
     }
 
     /**
@@ -60,7 +60,7 @@ class NewsController extends Controller
     public function show(News $news)
     {
         $myNews = $news::where('author', auth()->user()->name)->get();
-        return Inertia::render('Dashboard', [
+        return Inertia::render('MyNews', [
             'myNews' => $myNews
         ]);
     }
