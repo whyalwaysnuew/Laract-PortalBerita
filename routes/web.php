@@ -18,9 +18,6 @@ use Inertia\Inertia;
 */
 Route::get('/', [NewsController::class, 'index'])->name('home');
 // Route::post('/news', [NewsController::class, 'store']);
-Route::get('/MyNews', [NewsController::class, 'show']);
-Route::get('/dashboard/MyNews', [NewsController::class, 'show'])->name('MyNews');
-Route::post('News', [NewsController::class, 'store']);
 
 // Route::get('/welcome', function () {
 //     return Inertia::render('Welcome', [
@@ -31,9 +28,10 @@ Route::post('News', [NewsController::class, 'store']);
 //     ]);
 // });
 
-Route::get('/dashboard/MyNews/create', function () {
+Route::get('/MyNews/create', function () {
     return Inertia::render('CreateNews');
-})->middleware(['auth', 'verified'])->name('Create-News');
+})->middleware(['auth'])->name('news.create');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -44,6 +42,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/MyNews', [NewsController::class, 'show'])->name('MyNews');
+    Route::get('/MyNews/edit', [NewsController::class, 'edit'])->name('news.edit');
+    Route::post('/MyNews/store', [NewsController::class, 'store']);
+    Route::post('/MyNews/update', [NewsController::class, 'update']);
+    Route::delete('/MyNews', [NewsController::class, 'destroy'])->name('news.delete');
 });
 
 require __DIR__.'/auth.php';

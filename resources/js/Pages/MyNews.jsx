@@ -3,17 +3,17 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
-export default function Dashboard(props) {
+export default function MyNews(props) {
 
     useEffect(() => {
         if(!props.myNews){
             Inertia.get('/MyNews')
         }
-        console.log('result: ', props)
+        // console.log('result: ', props)
         return;
     }, [])
     
-    // console.log('result: ', props)
+    //  console.log('result: ', props)
 
     return (
         <AuthenticatedLayout
@@ -25,6 +25,15 @@ export default function Dashboard(props) {
 
             <div className="py-6">
                 <div className="max-w-7xl mt-7 lg:px-8 sm:px-6 mx-auto">
+                {props.flash.message != null ?
+                    (<div className="alert alert-warning shadow-lg mb-7">
+                        <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                        <span>{props.flash.message}</span>
+                        </div>
+                    </div>) : ''
+                }
+                
                     <div className="flex justify-center flex-col items-center gap-4 lg:flex-row lg:items-stretch lg:flex-wrap">
                     {props.myNews && props.myNews.length > 0 ? props.myNews.map((news, i) => {
                         return (
@@ -42,9 +51,12 @@ export default function Dashboard(props) {
                                         <div className="badge badge-outline">
                                             {news.category}
                                             </div> 
-                                        <div className="badge badge-outline">
-                                            {news.author}
-                                            </div>
+                                        <Link href={route('news.edit')} method="get" data={{id: news.id}} as="button" className="badge badge-info">
+                                            Edit
+                                            </Link>
+                                        <Link href={route('news.delete')} as="button" className="badge badge-error">
+                                            Delete
+                                            </Link>
                                     </div>
                                 </div>
                             </div>
