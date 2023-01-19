@@ -20,7 +20,7 @@ export default function Dashboard(props) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    abc
+                    abvvvc
                 </div>
             </div>
         </AuthenticatedLayout>
