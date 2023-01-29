@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/MyNews/edit', [NewsController::class, 'edit'])->name('news.edit');
     Route::post('/MyNews/store', [NewsController::class, 'store']);
     Route::post('/MyNews/update', [NewsController::class, 'update']);
-    Route::delete('/MyNews', [NewsController::class, 'destroy'])->name('news.delete');
+    Route::post('/MyNews/delete', [NewsController::class, 'destroy'])->name('news.delete');
 });
 
 require __DIR__.'/auth.php';
