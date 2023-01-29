@@ -22,6 +22,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "cross-env": "^7.0.3",
         "daisyui": "^2.46.1"
     }
 }
