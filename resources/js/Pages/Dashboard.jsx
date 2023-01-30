@@ -1,14 +1,7 @@
-import { useState } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/inertia-react";
-import { Inertia } from "@inertiajs/inertia";
 
 export default function Dashboard(props) {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
-    const [isNotif, setIsNotif] = useState(false);
-
     return (
         <AuthenticatedLayout
             auth={props.auth}

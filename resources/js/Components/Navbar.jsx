@@ -50,9 +50,7 @@ const Navbar = ({ user }) => {
                                 <a>Settings</a>
                             </li>
                             <li>
-                                <Link method="post" href={route("logout")}>
-                                    Logout
-                                </Link>
+                                <Link href={route("logout")}>Logout</Link>
                             </li>
                         </ul>
                     </div>
