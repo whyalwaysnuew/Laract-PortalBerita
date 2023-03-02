@@ -42,7 +42,7 @@ const Navbar = ({ user }) => {
                                 >
                                     Dashboard
                                     <span className="badge badge-secondary">
-                                        New fzaazz
+                                        New fz
                                     </span>
                                 </Link>
                             </li>
