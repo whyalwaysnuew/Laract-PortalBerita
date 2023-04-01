@@ -3,10 +3,7 @@ const isNews = (news) => {
         return (
             <div key={i} className="card w-full lg:w-96 bg-base-100 shadow-xl">
                 <figure>
-                    <img
-                        src="https://picsum.photos/id/435/1200/800"
-                        alt="Shoes"
-                    />
+                    <img src={data.image} alt="Shoes" />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">

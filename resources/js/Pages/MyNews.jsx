@@ -110,8 +110,8 @@ export default function MyNews(props) {
                                     >
                                         <figure>
                                             <img
-                                                src="https://placeimg.com/400/225/arch"
-                                                alt="Shoes"
+                                                src={news.image}
+                                                alt={news.title}
                                             />
                                         </figure>
                                         <div className="card-body">
