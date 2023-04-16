@@ -118,7 +118,7 @@ export default function MyNews(props) {
                                             <h2 className="card-title">
                                                 {news.title}
                                                 <div className="badge badge-secondary">
-                                                    NEW
+                                                    NEWs
                                                 </div>
                                             </h2>
                                             <p>{news.description}</p>
