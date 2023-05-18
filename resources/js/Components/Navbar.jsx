@@ -32,7 +32,7 @@ const Navbar = ({ user }) => {
                         >
                             <li>
                                 <Link href={route("profile.edit")}>
-                                    Profile
+                                    Profiles
                                 </Link>
                             </li>
                             <li>
@@ -40,9 +40,9 @@ const Navbar = ({ user }) => {
                                     href={route("dashboard")}
                                     className="justify-between"
                                 >
-                                    Dashboard
+                                    Dashboards
                                     <span className="badge badge-secondary">
-                                        News
+                                        Newss
                                     </span>
                                 </Link>
                             </li>
